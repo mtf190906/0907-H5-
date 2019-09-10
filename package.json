@@ -1,0 +1,27 @@
+{
+  "name": "0907-h5-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtf190906/0907-H5-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mtf190906/0907-H5-/issues"
+  },
+  "homepage": "https://github.com/mtf190906/0907-H5-#readme",
+  "devDependencies": {
+    "css-loader": "^3.2.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
+  },
+  "dependencies": {}
+}
