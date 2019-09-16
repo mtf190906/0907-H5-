@@ -4,13 +4,31 @@
 ///参数2：需要追加的目录名,不需要写/，resolve方法会帮我们自动追加
 var path = require ('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+var WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
+var getHtmlConfig = function(name) {
+	return {
+			//对哪个html文件进行打包
+			template: './src/view/'+ name +'.html',
+			//打包后的路径
+			filename: 'view/'+ name +'.html',
+			//自动注入 保证路径正确
+			inject: true,
+			hash: true,
+			chunks:['common',name]
+		}
+}
+
 var config = {
 	entry :{
 	'index' : './src/page/index/index.js',
-	'login' : './src/page/login/index.js'
+	'user-login' : './src/page/user-login/index.js',
+	'common' : ['./src/page/common/index.js']
 	},
 	output :{
 		path: path.resolve(__dirname,'dist'),
+		publicPath: '/dist',
 		filename:  'js/[name].js'
 	},
 	externals:{
@@ -42,11 +60,22 @@ var config = {
       						fallback: "style-loader",
       						use: "css-loader"
     					})
+				},
+				{
+					test:/\.(gif|png|jpg|woff|svg|eot|ttf).??.*$/,
+					loader: 'url-loader?limit=100&name=resource/[name].[ext]'
 				}
 		]
 	},
 	plugins:[
-		new ExtractTextPlugin("css/[name].css")
+		new ExtractTextPlugin("css/[name].css"),
+		new HtmlWebpackPlugin(getHtmlConfig('index')),
+		new HtmlWebpackPlugin(getHtmlConfig('user-login')),
 	]
 }
-module.exports = config;
+
+//如果是开发环境 那么添加一个数组元素
+if ('dev'=== WEBPACK_ENV) {
+	config.entry.common.push('webpack-dev-server/client?http://localhost:8088')
+}
+module.exports = config; 
