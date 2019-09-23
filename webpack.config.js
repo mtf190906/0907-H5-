@@ -5,8 +5,12 @@
 var path = require ('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+//接口字符串
+var str = new Buffer('aHR0cDovL3Rlc3QuaGFwcHltbWFsbC5jb20v','base64');
 
 var WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
+var path = require('path');
+
 var getHtmlConfig = function(name) {
 	return {
 			//对哪个html文件进行打包
@@ -71,11 +75,32 @@ var config = {
 		new ExtractTextPlugin("css/[name].css"),
 		new HtmlWebpackPlugin(getHtmlConfig('index')),
 		new HtmlWebpackPlugin(getHtmlConfig('user-login')),
-	]
+	],
+	resolve:{
+		alias:{
+			node_modules: path.resolve(__dirname,'node_modules'),
+			service: path.resolve(__dirname,'src/service'),
+			util: path.resolve(__dirname,'src/util'),
+			"@": path.resolve(__dirname,'src/page'),
+			image: path.resolve(__dirname,'image')	
+		}
+	},
+	devServer:{
+		port:8088,
+		inline:true,
+		//配置代理实现跨域
+		//当访问localhost：8088/**//.do的时候就跳转到网络接口
+		proxy:{
+			"**/*.do":{
+				target: str.toString(),
+				changeOrigin: true
+			}
+		}
+	}
 }
 
 //如果是开发环境 那么添加一个数组元素
 if ('dev'=== WEBPACK_ENV) {
 	config.entry.common.push('webpack-dev-server/client?http://localhost:8088')
 }
-module.exports = config; 
+module.exports = config;   
