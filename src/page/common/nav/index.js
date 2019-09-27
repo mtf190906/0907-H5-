@@ -8,7 +8,7 @@ var nav = {
 	init:function(){
 		this.bindEvent();
 		this.loadUserInfo();
-		this.loadCarCount();
+		this.loadCartCount();
 		//返回nav对象本身，保证给modules.exports的还是nav对象
 		return this;
 	},

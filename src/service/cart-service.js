@@ -6,7 +6,7 @@ var _cart = {
 	getCartCount:function(resolve,reject){
 		_mm.request({
 			url:_mm.getServerUrl('/user/get_cart_product_count.do'),
-			// method:'POST', 
+			 method:'POST', 
 			// 如果没有指定POST ，则默认使用GET的请求方式
 			success:resolve,
 			error:reject
