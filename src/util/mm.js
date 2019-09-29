@@ -15,18 +15,17 @@ var _mm = {
 			type:param.method || 'get',
 			url : param.url || '',
 			dataType : param.type || 'json',
-			data : param.date || '',
+			data : param.data || '',
 			//请求成功 返回200 
 			success: function(res)
 			{
 				if(0 === res.status){
-					typeof param.success === 'function' && param.success(res.date,res.msg);
+					typeof param.success === 'function' && param.success(res.data,res.msg);
 				}else if (10 === res.status){
 					//没有登陆状态 统一去登陆
 					_this.doLogin();
 				}else if (1 === res.status){
 					typeof param.error === 'function' && param.error(res.msg);
-				
 				}
 			},
 			// 返回404 503

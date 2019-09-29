@@ -30,7 +30,8 @@ var config = {
 	'common' : ['./src/page/common/index.js'],
 	'index' : './src/page/index/index.js',
 	'user-login' : './src/page/user-login/index.js',
-	'user-result' : './src/page/user-result/index.js'
+	'user-result' : './src/page/user-result/index.js',
+	'user-register' : './src/page/user-register/index.js'
 	},
 	output :{
 		path: path.resolve(__dirname,'dist'),
@@ -81,7 +82,8 @@ var config = {
 		new ExtractTextPlugin("css/[name].css"),
 		new HtmlWebpackPlugin(getHtmlConfig('index','首页')),
 		new HtmlWebpackPlugin(getHtmlConfig('user-login','用户登录')),
-		new HtmlWebpackPlugin(getHtmlConfig('user-result','操作结果'))
+		new HtmlWebpackPlugin(getHtmlConfig('user-result','操作结果')),
+		new HtmlWebpackPlugin(getHtmlConfig('user-register','用户注册'))
 	],
 	resolve:{
 		alias:{
@@ -110,4 +112,4 @@ var config = {
 if ('dev'=== WEBPACK_ENV) {
 	config.entry.common.push('webpack-dev-server/client?http://localhost:8088')
 }
-module.exports = config;   
+module.exports = config;      

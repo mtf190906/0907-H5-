@@ -9,4 +9,9 @@
   font-weight: bold;
   color: #C60023;
   text-decoration: none;
+  float: left;
+}
+.nav-simple .logo-icon{
+  float: left;
+  width: 20%;
 }

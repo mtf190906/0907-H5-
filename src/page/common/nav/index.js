@@ -20,17 +20,22 @@ var nav = {
 		}),
 		//点击注册按钮
 		$('.js-register').click(function(){
-			window.location.href = './user-register.html'
+			window.location.href = 'user-register.html'
 		}),
 		//点击退出按钮(需要请求后端)
 		$('.js-logout').click(function(){
-			_user.logout();
+			_user.logout(function(res){
+				//刷新页面
+				window.location.reload();
+			},function(errMsg){
+				_mm.erroeTips(errMsg);
+			});
 		})
 	},
 	//加载用户信息的方法
 	loadUserInfo:function(){
 		_user.checkLogin(function(res){
-			$('.user.not-login').hide().siblings('.user.login').show().find('.username').text('res.username')
+			$('.user.not-login').hide().siblings('.user.login').show().find('.username').text(res.username)
 		},function(errMsg){
 			// do nothing
 		});
@@ -44,7 +49,6 @@ var nav = {
 			$('.nav .cart-count').text(0)
 		});
 	}
-
 }
 module.exports = nav.init();
 

@@ -9,11 +9,11 @@ var _mm = require('util/mm.js');
 var navSide = require('@/common/nav-side/index.js');
 
 
-// =====================================
+ // =====================================
 //测试个人中心页 成功的效果为了 name为选中高亮
-// navSide.init({
-// 	name:'user-center'
-// });
+navSide.init({
+	name:'user-center'
+});
 // =====================================
 //request请求数据 未测试成功
 // _mm.request({
@@ -34,4 +34,4 @@ var navSide = require('@/common/nav-side/index.js');
 // var data = {
 // 	data:'这是渲染过来的 在div里加了文字'
 // }
-// console.log(_mm.renderHtml(html,data));   
+// console.log(_mm.renderHtml(html,data));      
