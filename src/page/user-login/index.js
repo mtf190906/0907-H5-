@@ -46,9 +46,7 @@ var page = {
         if(validateResult.status){
             console.log('表单验证成功,继续服务器端验证!')
             _user.login(formData,function(res){
-                 
                  window.location.href = _this.myddd() || './index.html';
-                 
             },function(errMsg){
                 formError.show(errMsg);
             });
@@ -60,8 +58,7 @@ var page = {
     myddd:function(){
         var isHas = Boolean(_mm.getUrlParam('redirect'))
        // console.log(isHas)
-        alert(isHas)
-        if (isHas) {
+            if (isHas) {
             //alert(decodeURIComponent(_mm.getUrlParam('redirect')))
             return decodeURIComponent(_mm.getUrlParam('redirect'))
         }else{

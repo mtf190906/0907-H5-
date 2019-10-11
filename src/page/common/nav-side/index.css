@@ -1,7 +1,7 @@
 /*导航主体*/
 
 .nav-side{
-  /*float: left;*/
+  float: left;
   width: 130px;
   /*同时有宽度和高度才会占一个位置，否则位置会闪*/
   min-height: 100px;
@@ -10,6 +10,7 @@
 .nav-side .nav-item{
   line-height: 25px;
   font-size: 13px;
+  height: 25px;
 }
 
 .nav-side .nav-item .link{

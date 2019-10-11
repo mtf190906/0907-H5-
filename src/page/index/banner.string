@@ -1,0 +1,30 @@
+<div class="swiper-container">
+      <ul class="swiper-wrapper">
+            <li class="swiper-slide">
+                  <a href="./list.html?.categoryId=100021" target="_blank">
+                        <img src="../../image/banner/banner1.jpg" class="banner-img">
+                  </a>
+            </li>
+            <li class="swiper-slide">
+                  <a href="./list.html?.categoryId=100022" target="_blank">
+                        <img src="../../image/banner/banner2.jpg" class="banner-img">
+                  </a>
+            </li>
+            <li class="swiper-slide">
+                  <a href="./list.html?.categoryId=100023" target="_blank">
+                        <img src="../../image/banner/banner3.jpg" class="banner-img">
+                  </a>
+            </li>
+            <li class="swiper-slide">
+                  <a href="./list.html?.categoryId=100024" target="_blank">
+                        <img src="../../image/banner/banner4.jpg" class="banner-img">
+                  </a>
+            </li>
+            <li class="swiper-slide">
+                  <a href="./list.html?.categoryId=100025" target="_blank">
+                        <img src="../../image/banner/banner5.jpg" class="banner-img">
+                  </a>
+            </li>
+      </ul>
+      <div class="swiper-pagination"></div>
+</div>

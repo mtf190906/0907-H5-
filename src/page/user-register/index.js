@@ -65,13 +65,12 @@ var page = {
         //表单验证结果
         var validateResult = this.formValidate(formData);
         //前端验证成功
-        console.log(validateResult.status,88888888888,validateResult.msg);
         if(validateResult.status){
             console.log('表单验证成功,继续服务器端验证!');
             //提交
             _user.register(formData,function(res){
                 // window.location.href = _mm.getUrlParam('redirect') || './index.html';
-                window.location.href = './user-result.html?type=rigster';
+                window.location.href = './user-result.html?type=register';
             },function(errMsg){
                 formError.show(errMsg);
             });
