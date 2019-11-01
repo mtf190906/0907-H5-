@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<%=require('html-loader!./layout/head-common.html')%>
+<title><%= htmlWebpackPlugin.options.title %> - TMallStore电商平台</title>
+
+<body>
+
+    <%=require('html-loader!./layout/nav.html')%>
+    <%=require('html-loader!./layout/header.html')%>
+    <div class="crumb">
+        <div class="w">
+            <div class="crumb-con">
+                <a href="./index.html" class="link">TMALL ></a>
+                <span>></span>
+                <span class="link-text"><%= htmlWebpackPlugin.options.title %></span>
+            </div>
+        </div>
+    </div>
+    <div class="page-wrap w">
+        <div class="panel">
+            <h1 class="penel-title">收货地址</h1>
+            <div class="panel-body address-con">
+            </div>
+        </div>
+        <!-- ============= -->
+        <div class="panel">
+            <h1 class="penel-title">商品清单</h1>
+            <div class="panel-body product-con">
+                <!-- 在这里动态生成html结构 -->
+
+                <!-- ======== -->
+
+            </div>
+        </div>
+    </div>
+    <!-- ========== -->
+    <div class="modal-wrap">
+        <!-- 在这里动态生成HTML -->
+    </div>
+    <%=require('html-loader!./layout/footer.html')%>
+</body>
+
+</html>
